@@ -10,16 +10,20 @@ import SwiftUI
 struct ListView: View {
     
     @State var items: [String] = ["This is the first title", "This is the second title", "This is the final title"]
+    private enum ViewStrings: String {
+        case navigationTitle = "Todo List 📝"
+        case navigationLinkTitle = "Add"
+    }
     var body: some View {
         List {
             ForEach(items, id: \.self) { item in
                 ListRowView(title: item)
             }
         }
-        .navigationTitle("Todo List 📝")
+        .navigationTitle(ViewStrings.navigationTitle.rawValue)
         .navigationBarItems(
             leading: EditButton(),
-            trailing: NavigationLink("Add", destination: AddNewMemoView()))
+            trailing: NavigationLink(ViewStrings.navigationLinkTitle.rawValue, destination: AddNewMemoView()))
     }
 }
 

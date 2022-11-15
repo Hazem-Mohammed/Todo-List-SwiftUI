@@ -10,10 +10,13 @@ import SwiftUI
 struct ListRowView: View {
     
     let title: String
+    private enum ViewImages: String {
+        case stackIcon = "checkmark.circle"
+    }
     
     var body: some View {
         HStack {
-            Image(systemName: "checkmark.circle")
+            Image(systemName: ViewImages.stackIcon.rawValue)
             Text(title)
         }
     }
