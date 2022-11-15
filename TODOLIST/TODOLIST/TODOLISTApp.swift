@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct TODOLISTApp: App {
+    
+    @StateObject var memoViewModel = MemoViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ListView()
             }
+            .environmentObject(memoViewModel)
         }
     }
 }
