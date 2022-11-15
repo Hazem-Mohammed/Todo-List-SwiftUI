@@ -9,15 +9,18 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [String] = ["This is the first title", "This is the second title", "This is the final title"]
+    @State var items: [MemoModel] = [MemoModel(title: "This is the first title", isCompleted: false),
+        MemoModel(title: "This is the second title", isCompleted: true),
+        MemoModel(title: "This is the last title", isCompleted: false)]
     private enum ViewStrings: String {
         case navigationTitle = "Todo List 📝"
         case navigationLinkTitle = "Add"
     }
+    
     var body: some View {
         List {
-            ForEach(items, id: \.self) { item in
-                ListRowView(title: item)
+            ForEach(items) { item in
+                ListRowView(item: item)
             }
         }
         .navigationTitle(ViewStrings.navigationTitle.rawValue)
