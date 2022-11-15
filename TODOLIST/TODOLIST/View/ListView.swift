@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [MemoModel] = [MemoModel(title: "This is the first title", isCompleted: false),
-        MemoModel(title: "This is the second title", isCompleted: true),
-        MemoModel(title: "This is the last title", isCompleted: false)]
+    @EnvironmentObject var memoViewModel: MemoViewModel
     private enum ViewStrings: String {
         case navigationTitle = "Todo List 📝"
         case navigationLinkTitle = "Add"
@@ -19,9 +17,16 @@ struct ListView: View {
     
     var body: some View {
         List {
-            ForEach(items) { item in
+            ForEach(memoViewModel.items) { item in
                 ListRowView(item: item)
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            memoViewModel.updateItem(item: item)
+                        }
+                    }
             }
+            .onDelete(perform: memoViewModel.deleteItem)
+            .onMove(perform: memoViewModel.moveItem)
         }
         .navigationTitle(ViewStrings.navigationTitle.rawValue)
         .navigationBarItems(
@@ -35,5 +40,6 @@ struct ListView_Previews: PreviewProvider {
         NavigationView {
             ListView()
         }
+        .environmentObject(MemoViewModel())
     }
 }

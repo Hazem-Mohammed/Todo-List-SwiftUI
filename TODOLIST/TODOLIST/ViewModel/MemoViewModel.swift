@@ -29,4 +29,15 @@ class MemoViewModel: ObservableObject {
     func moveItem(fromIndex: IndexSet, toIndex: Int) {
         items.move(fromOffsets: fromIndex, toOffset: toIndex)
     }
+    
+    func addItem(title: String) {
+        let newItem = MemoModel(title: title, isCompleted: false)
+        items.append(newItem)
+    }
+    
+    func updateItem(item: MemoModel) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index] = item.updateMemoModel()
+        }
+    }
 }
