@@ -13,6 +13,7 @@
 		819484732923A357004D5ABB /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819484722923A357004D5ABB /* ListView.swift */; };
 		819484752923A4CF004D5ABB /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819484742923A4CF004D5ABB /* ListRowView.swift */; };
 		819484772923A7BE004D5ABB /* AddNewMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819484762923A7BE004D5ABB /* AddNewMemoView.swift */; };
+		819484792923AF71004D5ABB /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819484782923AF71004D5ABB /* MemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		819484722923A357004D5ABB /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		819484742923A4CF004D5ABB /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		819484762923A7BE004D5ABB /* AddNewMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMemoView.swift; sourceTree = "<group>"; };
+		819484782923AF71004D5ABB /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		819484712923A32D004D5ABB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				819484782923AF71004D5ABB /* MemoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819484792923AF71004D5ABB /* MemoModel.swift in Sources */,
 				819484622923A0F1004D5ABB /* TODOLISTApp.swift in Sources */,
 				819484732923A357004D5ABB /* ListView.swift in Sources */,
 				819484752923A4CF004D5ABB /* ListRowView.swift in Sources */,
