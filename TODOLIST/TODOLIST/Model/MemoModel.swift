@@ -8,7 +8,7 @@
 import Foundation
 
 struct MemoModel: Identifiable {
-    let id: String = UUID().uuidString
+    var id = UUID()
     let title: String
     let isCompleted: Bool
 }
