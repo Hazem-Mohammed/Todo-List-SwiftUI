@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var memoViewModel: MemoViewModel
+    
     private enum ViewStrings: String {
         case navigationTitle = "Todo List 📝"
         case navigationLinkTitle = "Add"

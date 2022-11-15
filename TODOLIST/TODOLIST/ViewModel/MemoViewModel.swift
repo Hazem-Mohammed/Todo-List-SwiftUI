@@ -9,17 +9,24 @@ import Foundation
 
 class MemoViewModel: ObservableObject {
     
-    @Published var items: [MemoModel] = []
+    @Published var items: [MemoModel] = [] {
+        didSet {
+            saveItems()
+        }
+    }
+    let itemsKey = "savedItems"
     
     init() {
         getItems()
     }
     
     private func getItems() {
-        let newItems = [MemoModel(title: "This is the first title", isCompleted: false),
-                        MemoModel(title: "This is the second title", isCompleted: true),
-                        MemoModel(title: "This is the last title", isCompleted: false)]
-        items.append(contentsOf: newItems)
+        guard
+            let data = UserDefaults.standard.data(forKey: itemsKey),
+            let savedItem = try? JSONDecoder().decode([MemoModel].self, from: data)
+        else { return }
+        
+        self.items = savedItem
     }
     
     func deleteItem(indexSet: IndexSet) {
@@ -38,6 +45,12 @@ class MemoViewModel: ObservableObject {
     func updateItem(item: MemoModel) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             items[index] = item.updateMemoModel()
+        }
+    }
+    
+    func saveItems() {
+        if let encodedeData = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encodedeData, forKey: itemsKey)
         }
     }
 }
